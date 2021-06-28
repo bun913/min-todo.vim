@@ -1,26 +1,26 @@
 function DoneTask()
-  " マークダウンのチェックボックスをチェック済みに
+  " Make a task Done
   let row = getline(".")
   let replaced = substitute(row, '\[ \]', "\[x\]", "g")
   call setline(".", replaced)
-  " 末尾にタイムスタンプを押す
+  " Append timestamp
   let nowPos = getpos(".")
   let now = "@". strftime("%Y-%m-%d %H:%M:%S")
   let col = col("$")
   call cursor(".", col)
   execute ":normal a" . now
-  " 元のポジションに戻る
+  " Back to the org position
   call setpos(".", nowPos)
 endfunction
 
 function UndoTask()
-  " マークダウンのチェクボックスを戻す
+  " Make a task Uncheck
   let row = getline(".")
   let replaced = substitute(row, '\[x\]', '\[ \]', 'g')
   call setline(".", replaced)
-  " " 末尾タイムスタンプを削除
+  " Delete timestamp
   let row = getline(".")
-  let deleted = substitute(row, '@.*$', '', 'g')
+	let deleted = substitute(row, '@\d\{4\}-\d\{2\}-\d\{2\} \d\{2\}:\d\{2\}:\d\{2\}.*$', '', 'g')
   call setline(".", deleted)
 endfunction
 
