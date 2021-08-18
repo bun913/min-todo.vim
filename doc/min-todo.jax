@@ -1,0 +1,104 @@
+*min-todo.txt*	日本語ヘルプ
+
+Version :
+Author  :
+License : MIT license  {{{
+    Permission is hereby granted, free of charge, to any person obtaining
+    a copy of this software and associated documentation files (the
+    "Software"), to deal in the Software without restriction, including
+    without limitation the rights to use, copy, modify, merge, publish,
+    distribute, sublicense, and/or sell copies of the Software, and to
+    permit persons to whom the Software is furnished to do so, subject to
+    the following conditions:
+    The above copyright notice and this permission notice shall be included
+    in all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+    OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+    CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+    TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+    SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+}}}
+
+==============================================================================
+目次						*min-todo-contents*
+
+概要				|min-todo-introduction|
+使い方				|min-todo-usage|
+インターフェイス		|min-todo-interface|
+  コマンド			  |min-todo-commands|
+  関数				  |min-todo-functions|
+TODO				|min-todo-todo|
+更新履歴			|min-todo-changelog|
+
+
+==============================================================================
+概要						*min-todo-introduction*
+
+*min-todo* はシンプルなTODO管理用のツールです。
+
+最新版:
+https://github.com/bun913/min-todo.vim
+
+
+==============================================================================
+使い方						*min-todo-usage*
+
+:CreateTaskで新規タスクを作成します
+:ToggleTaskでタスクの未了・終了を切り替えます
+
+以下のように好きなキーマップで登録しておくと便利です
+
+imap <C-c> <ESC>:CreateTask<CR>A
+nnoremap <C-c> :ToggleTask<CR>
+
+
+==============================================================================
+インターフェイス				*min-todo-interface*
+
+------------------------------------------------------------------------------
+コマンド					*min-todo-commands*
+
+:DoneTask					*:DoneTask*
+
+タスクを終了状態にする
+[ ] sample1
+↓
+[x] sample1
+
+:UndoTask					*:UndoTask*
+
+タスクを未了状態にする
+[x] sample1
+↓
+[ ] sample1
+
+:ToggleTask					*:ToggleTask*
+
+タスクの終了・未了状態を切り替える
+
+
+:CreateTask					*:CreateTask*
+
+新規タスクの作成
+
+:ArchiveTasks					*:ArchiveTasks*
+
+終了状態のタスクを最終行に移動させる
+
+------------------------------------------------------------------------------
+関数						*min-todo-functions*
+
+==============================================================================
+TODO						*min-todo-todo*
+
+デフォルトではキーマップを提供しないため、お好みのキーマップを設定してください
+
+==============================================================================
+更新履歴					*min-todo-changelog*
+2021-08-18 First release
+
+==============================================================================
+vim:tw=78:ts=8:ft=help:norl:noet:fen:
